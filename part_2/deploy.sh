@@ -7,7 +7,7 @@ else
 fi
 cd ..
 ./build.sh "config-server" ${version}
-#./build.sh "cloud-index" ${version}
-./deploy.sh "config-server" ${version}
-#./deploy.sh "cloud-index" ${version}
+# ./build.sh "cloud-index" ${version}
+./deploy.sh "config-server" ${version} "config-srv"
+# ./deploy.sh "cloud-index" ${version} "cloud-index"
 cd part_2

@@ -13,20 +13,21 @@ cf_login() {
 deploy() {
     echo "== Deploying ${app}-${version} ================================"    
     cd ../${app}
-    cf push ${app} --vars-file ./vars.yml
+    cf push ${app} --vars-file ./vars.yml --var app.route=${app_route}.${cf_domain}
     cd ../todos-cicd
 }
 
 source deploy.conf
 
-if [ -z "$1" ] && [ -z "$2" ]
+if [ -z "$1" ] && [ -z "$2" ] && [ -z "$3" ]
 then
-    echo "Please enter app and version, for example:"
-    echo "deploy.sh todos-api 1.0.0.SNAP"
+    echo "Please enter app, version and route, for example:"
+    echo "deploy.sh todos-api 1.0.0.SNAP todos-api"
     exit 1
 fi
 
 app=$1
 version=$2
+app_route=$3
 cf_login
 deploy

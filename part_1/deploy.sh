@@ -8,7 +8,7 @@ fi
 cd ..
 ./build.sh "todos-gateway" ${version}
 ./build.sh "todos-api" ${version}
-./deploy.sh "todos-gateway" ${version}
-./deploy.sh "todos-api" ${version}
-./deploy.sh "todos-ui" ${version}
+./deploy.sh "todos-gateway" ${version} "todos-gateway"
+./deploy.sh "todos-api" ${version} "todos-api"
+./deploy.sh "todos-ui" ${version} "todos-ui"
 cd part_1

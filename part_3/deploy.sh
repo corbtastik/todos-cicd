@@ -7,5 +7,5 @@ else
 fi
 cd ..
 ./build.sh "todos-data" ${version}
-./deploy.sh "todos-data" ${version}
+./deploy.sh "todos-data" ${version} "todos-data"
 cd part_3

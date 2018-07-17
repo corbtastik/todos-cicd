@@ -8,6 +8,6 @@ fi
 cd ..
 ./build.sh "todos-command" ${version}
 ./build.sh "todos-query" ${version}
-./deploy.sh "todos-command" ${version}
-./deploy.sh "todos-query" ${version}
+./deploy.sh "todos-command" ${version} "todos-command"
+./deploy.sh "todos-query" ${version} "todos-query"
 cd part_5
