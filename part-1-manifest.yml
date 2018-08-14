@@ -1,0 +1,27 @@
+---
+applications:
+- name: todos-api
+  memory: 1G
+  routes:
+  - route: ((api.route))
+  path: ((api.artifact))
+  buildpack: java_buildpack
+  env:
+    TODOS_API_LIMIT: 512
+- name: todos-ui
+  memory: 512M
+  routes:
+  - route: ((ui.route))
+  path: ((ui.artifact))
+  buildpack: staticfile_buildpack
+  env:
+    APP_VERSION: 1.0.0.SNAP
+- name: todos-gateway
+  memory: 1G
+  routes:
+  - route: ((gateway.route))
+  path: ((gateway.artifact))
+  buildpack: java_buildpack
+  env:
+    ZUUL_ROUTES_UI_URL: ((ui.route))
+    ZUUL_ROUTES_API_URL: ((api.route))
