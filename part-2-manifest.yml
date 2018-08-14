@@ -1,0 +1,59 @@
+---
+applications:
+- name: config-server
+  memory: 1G
+  routes:
+  - route: ((config.route))
+  path: ((config.artifact))
+  buildpack: java_buildpack
+  env:
+    EUREKA_CLIENT_SERVICE-URL_DEFAULTZONE: https://cloud-index.cfapps.io/eureka/
+    SPRING_CLOUD_CONFIG_SERVER_GIT_URI: https://github.com/corbtastik/todos-config
+- name: cloud-index
+  memory: 1G
+  routes:
+  - route: ((index.route))
+  path: ((index.artifact))
+  buildpack: java_buildpack
+  env:
+    CONFIG_SERVER_URI: https://config-srv.cfapps.io  
+- name: todos-cache
+  memory: 1G
+  routes:
+  - route: ((cache.route))
+  path: ((cache.artifact))
+  buildpack: java_buildpack
+  env:
+    CONFIG_SERVER_URI: https://config-srv.cfapps.io
+  services:
+   - todos-cache
+   - todos-messaging  
+- name: todos-data
+  memory: 1G
+  routes:
+  - route: ((data.route))
+  path: ((data.artifact))
+  buildpack: java_buildpack
+  env:
+    CONFIG_SERVER_URI: https://config-srv.cfapps.io
+  services:
+  - todos-data
+  - todos-messaging
+- name: todos-command
+  memory: 1G
+  routes:
+  - route: ((command.route))
+  path: ((command.artifact))
+  buildpack: java_buildpack
+  env:
+    CONFIG_SERVER_URI: https://config-srv.cfapps.io
+  services:
+  - todos-messaging
+- name: todos-query
+  memory: 1G
+  routes:
+  - route: ((query.route))
+  path: ((query.artifact))
+  buildpack: java_buildpack
+  env:
+    CONFIG_SERVER_URI: https://config-srv.cfapps.io

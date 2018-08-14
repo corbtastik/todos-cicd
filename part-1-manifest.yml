@@ -8,6 +8,7 @@ applications:
   buildpack: java_buildpack
   env:
     TODOS_API_LIMIT: 512
+    EUREKA_CLIENT_ENABLED: false
 - name: todos-ui
   memory: 512M
   routes:
@@ -25,3 +26,4 @@ applications:
   env:
     ZUUL_ROUTES_UI_URL: ((ui.route))
     ZUUL_ROUTES_API_URL: ((api.route))
+    EUREKA_CLIENT_ENABLED: false

@@ -1,0 +1,18 @@
+config:
+  route: https://config-srv.cfapps.io
+  artifact: config-server/target/config-server-1.0.0.SNAP.jar
+index:
+  route: https://cloud-index.cfapps.io
+  artifact: cloud-index/target/cloud-index-1.0.0.SNAP.jar
+cache:
+  route: https://todos-cache.cfapps.io
+  artifact: todos-cache/target/todos-cache-1.0.0.SNAP.jar
+data:
+  route: https://todos-data.cfapps.io
+  artifact: todos-data/target/todos-data-1.0.0.SNAP.jar
+command:  
+  route: https://todos-command.cfapps.io
+  artifact: todos-command/target/todos-command-1.0.0.SNAP.jar
+query:  
+  route: https://todos-query.cfapps.io
+  artifact: todos-query/target/todos-query-1.0.0.SNAP.jar
