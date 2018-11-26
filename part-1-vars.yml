@@ -1,9 +1,9 @@
 api:
-  route: http://todos-api.cfapps.io
+  route: https://todos-api.cfapps.io
   artifact: todos-api/target/todos-api-1.0.0.SNAP.jar
 ui:
-  route: http://todos-ui.cfapps.io
+  route: https://todos-ui.cfapps.io
   artifact: todos-ui/
 gateway:
-  route: http://todos-gateway.cfapps.io
-  artifact: todos-gateway/target/todos-gateway-1.0.0.SNAP.jar
+  route: https://todos-cloud-gateway.cfapps.io
+  artifact: todos-cloud-gateway/target/todos-cloud-gateway-1.0.0.SNAP.jar

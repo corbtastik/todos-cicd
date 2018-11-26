@@ -17,13 +17,13 @@ applications:
   buildpack: staticfile_buildpack
   env:
     APP_VERSION: 1.0.0.SNAP
-- name: todos-gateway
+- name: todos-cloud-gateway
   memory: 1G
   routes:
   - route: ((gateway.route))
   path: ((gateway.artifact))
   buildpack: java_buildpack
   env:
-    ZUUL_ROUTES_UI_URL: ((ui.route))
-    ZUUL_ROUTES_API_URL: ((api.route))
+    TODOS_UI_ENDPOINT: ((ui.route))
+    TODOS_API_ENDPOINT: ((api.route))
     EUREKA_CLIENT_ENABLED: false
